@@ -41,13 +41,20 @@ const createCampus = async (req, res) => {
       }], { session });
       created = campus;
       await runWithTenant({ tenantId: campus._id, campus }, async () => {
-        const existing = await User.findOne({ email: String(adminEmail).toLowerCase().trim() });
-        if (existing) throw new Error("Campus administrator email already exists in this campus.");
-        await User.create([{
-          name: adminName, email: String(adminEmail).toLowerCase().trim(), password: await bcrypt.hash(adminPassword, 12),
-          role: "Admin", isActive: true, tenantId: campus._id
-        }], { session });
-      });
+  const hashedPassword = await bcrypt.hash(adminPassword, 12);
+
+  adminUser = new User({
+    tenantId: campus._id,
+    name: adminName.trim(),
+    email: String(adminEmail).toLowerCase().trim(),
+    password: hashedPassword,
+    role: "Admin",
+    isActive: true
+  });
+
+  adminUser.$locals.allowTenantBootstrap = true;
+  await adminUser.save();
+});
     });
     res.status(201).json({ success: true, message: "Campus and its first administrator created.", campus: created });
   } catch (error) {
