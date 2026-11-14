@@ -1,0 +1,23 @@
+CampusCare — Current Handoff Status
+
+Changes applied in this handoff:
+- Added tenantId assignment in Mongoose pre-validate middleware. A pre-save hook runs after Mongoose validation, which caused the reported required tenantId validation failure.
+- Explicitly supplied campus._id as tenantId when creating the first Campus Admin in both Platform Owner campus provisioning and public campus registration flows.
+- Made public campus registration create the Campus and initial Admin within one MongoDB transaction, preventing an orphan campus if Admin creation fails.
+- Normalized initial Admin email in Platform Owner provisioning.
+- Replaced the root README with the consolidated product specification and role-permission acceptance requirements.
+
+Verification:
+- Backend JavaScript syntax checks: PASS for project-owned .js files.
+- Existing backend automated tests: 6 PASS.
+- ZIP integrity: will be checked after packaging.
+
+Not verified:
+- Frontend Vite production build. Dependency installation could not be completed in this environment, so the earlier reported App.jsx build error has not been confirmed fixed in this uploaded source snapshot.
+- Live MongoDB campus registration, because no user database connection/secrets are available here.
+- MongoDB transaction support on the user's actual database.
+- End-to-end login for all five account types.
+- Cross-campus integration/security tests for all models, GridFS, Socket.IO, search, cache and exports.
+- Vercel/Render deployment.
+
+This is an updated source-code handoff with a targeted fix for the reported tenantId registration failure. It is not certified production-ready. Do not use real student data until the outstanding integration, tenant-isolation, frontend build and deployment tests pass.

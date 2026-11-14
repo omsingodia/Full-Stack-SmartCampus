@@ -1,0 +1,150 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "CampusCare API",
+    "version": "1.0.0",
+    "description": "CampusCare MERN application API"
+  },
+  "servers": [
+    {
+      "url": "https://YOUR-RENDER-BACKEND.onrender.com"
+    }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "API health check",
+        "responses": {
+          "200": {
+            "description": "API is running"
+          }
+        }
+      }
+    },
+    "/api/db-health": {
+      "get": {
+        "summary": "Database health check",
+        "responses": {
+          "200": {
+            "description": "MongoDB connection status"
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "summary": "Register a student",
+        "responses": {
+          "201": {
+            "description": "Student registered"
+          }
+        }
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "summary": "Login",
+        "responses": {
+          "200": {
+            "description": "Authenticated"
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "summary": "Current user",
+        "responses": {
+          "200": {
+            "description": "Current authenticated user"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          }
+        }
+      }
+    },
+    "/api/lost-found": {
+      "get": {
+        "summary": "List lost and found items",
+        "responses": {
+          "200": {
+            "description": "Items"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create lost/found item",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/api/reports": {
+      "get": {
+        "summary": "List reports",
+        "responses": {
+          "200": {
+            "description": "Reports"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create report",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/api/communities": {
+      "get": {
+        "summary": "List communities",
+        "responses": {
+          "200": {
+            "description": "Communities"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create community",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/api/exams": {
+      "get": {
+        "summary": "List exams, seats, duties and requests",
+        "responses": {
+          "200": {
+            "description": "Examination data"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create exam",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/api/contact": {
+      "post": {
+        "summary": "Submit contact message",
+        "responses": {
+          "201": {
+            "description": "Message saved"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap');
+@import "../../css/style.css";
+
+/* React root layout */
+#root {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.page-content {
+  padding-top: 56px;
+  padding-bottom: 96px;
+}
+
+/* Dashboard and authentication additions */
+
+.auth-message {
+  color: #b42318;
+  margin: 14px 0;
+}
+
+.dashboard-grid {
+  margin-top: 24px;
+}
+
+.dashboard-admin {
+  margin-top: 24px;
+}
+
+.dashboard-admin .row {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.nav-logout {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 18px;
+}
+
+.nav-logout:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .dashboard-admin .row {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* CampusCare functional module refinements */
+.search-wrap{display:flex;align-items:center;gap:10px;margin:12px 0 16px;border:1px solid var(--ln);background:#fff;padding:0 12px}
+.search-wrap span{font-size:24px;color:var(--mu)}
+.search-wrap input{border:0;outline:0;box-shadow:none}
+.search-wrap input:focus{outline:0}
+.filter-row{display:flex;justify-content:space-between;color:var(--mu);font-size:13px;margin:6px 0 12px}
+.team-label{font-size:14px;color:var(--mu)}
+.exam-tabs{margin-top:16px}
+.exam-layout{grid-template-columns:1.15fr .85fr}
+.year-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0}
+.year-card{background:#fff;border:1px solid var(--ln);padding:24px;text-align:left;font:400 20px var(--f);cursor:pointer}
+.year-card:hover,.year-card:focus{background:var(--k);color:#fff}
+.year-card small{display:block;font-size:12px;margin-top:8px;color:var(--mu)}
+.year-card:hover small{color:#ddd}
+.exam-year{margin:16px 0}
+.exam-chart{margin-top:12px;max-width:100%}
+.exam-chart img{display:block;max-width:100%;max-height:440px;object-fit:contain;border:1px solid var(--ln)}
+.subtle-divider{border-top:1px solid var(--ln);margin:24px 0}
+.community-card{text-align:left;color:var(--k);cursor:pointer}
+.community-card small{display:block;color:var(--mu);margin:8px 0}
+.community-card span[role="button"]{display:inline-block;text-decoration:underline;cursor:pointer;margin-top:8px}
+@media(max-width:760px){.year-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.exam-layout{grid-template-columns:1fr}}

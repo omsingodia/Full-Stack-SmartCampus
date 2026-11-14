@@ -1,0 +1,679 @@
+/* ===== CampusCare design =====
+   Style: black and white, thin type (Jost), square corners, lots of space. */
+
+/* ----- 1. Basics: colours, fonts, page background ----- */
+* {
+  box-sizing: border-box;
+}
+:root {
+  --k: #0a0a0a;
+  --bg: #f5f5f4;
+  --w: #fff;
+  --mu: #6b6b68;
+  --ln: #dadad6;
+  --ok: #1f5c3f;
+  --f: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--k);
+  font: 300 17px/1.6 var(--f);
+}
+/* ----- 2. Headings, text, links ----- */
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 20px;
+  font-weight: 400;
+}
+p {
+  margin: 0 0 1em;
+}
+a {
+  color: inherit;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--k);
+  outline-offset: 3px;
+}
+/* ----- 3. Page width and page titles ----- */
+.wrap {
+  max-width: 1180px;
+  margin: auto;
+  padding: 0 32px;
+}
+#m > .wrap {
+  padding-top: 56px;
+  padding-bottom: 96px;
+}
+#m > .wrap > h2 {
+  font-size: clamp(32px, 5vw, 54px);
+  margin-bottom: 32px;
+}
+/* ----- 4. Top bar and menu ----- */
+header {
+  background: var(--k);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.bar {
+  max-width: 1180px;
+  margin: auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.brand {
+  font: 500 15px var(--f);
+  letter-spacing: 0.32em;
+  text-decoration: none;
+  color: #fff;
+}
+nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+nav a {
+  font: 400 12px var(--f);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #a8a8a4;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
+}
+nav a:hover,
+nav a.on {
+  color: #fff;
+  border-color: #fff;
+}
+/* ----- 5. Home page: hero, module list, role band ----- */
+.hv {
+  background: var(--k);
+  color: #fff;
+}
+.hvi {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
+  align-items: center;
+  min-height: 76vh;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+.hv h1 {
+  font-size: clamp(40px, 6.4vw, 80px);
+  letter-spacing: -0.015em;
+  margin-bottom: 0.4em;
+}
+.hv p {
+  color: #c9c9c5;
+  font-size: 19px;
+  max-width: 520px;
+  margin-bottom: 2em;
+}
+.hv svg {
+  width: 100%;
+  opacity: 0.9;
+}
+.lst {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+.ln {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr auto;
+  gap: 28px;
+  align-items: center;
+  padding: 38px 0;
+  border-top: 1px solid var(--ln);
+  text-decoration: none;
+}
+.ln:last-child {
+  border-bottom: 1px solid var(--ln);
+}
+.ln h3 {
+  font-size: clamp(24px, 3vw, 34px);
+  margin: 0;
+}
+.ln p {
+  margin: 0;
+  color: var(--mu);
+}
+.ln span {
+  font: 400 12px var(--f);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--k);
+  padding-bottom: 3px;
+}
+.ln:hover h3 {
+  letter-spacing: 0.01em;
+}
+.band {
+  background: var(--k);
+  color: #fff;
+  padding: 72px 0;
+}
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.cols p {
+  color: #b5b5b1;
+  margin: 0;
+}
+/* ----- 6. Cards and grids ----- */
+.card {
+  background: var(--w);
+  border: 1px solid var(--ln);
+  padding: 28px;
+}
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.two {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+}
+.mod {
+  display: block;
+  text-decoration: none;
+  border-top: 2px solid var(--k);
+}
+.mod:hover {
+  background: var(--k);
+  color: #fff;
+}
+.mod:hover p {
+  color: #bbb;
+}
+.mod p {
+  color: var(--mu);
+  margin: 6px 0 0;
+  font-size: 15px;
+}
+/* ----- 7. Buttons ----- */
+.btn {
+  display: inline-block;
+  background: var(--k);
+  color: #fff;
+  border: 1px solid var(--k);
+  padding: 12px 26px;
+  font: 400 12px var(--f);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #2a2a2a;
+}
+.btn.g {
+  background: transparent;
+  color: var(--k);
+}
+.btn.g:hover {
+  background: var(--k);
+  color: #fff;
+}
+.btn.s {
+  padding: 7px 14px;
+  font-size: 11px;
+}
+.btn.w {
+  background: #fff;
+  color: var(--k);
+  border-color: #fff;
+}
+.btn.wg {
+  background: transparent;
+  color: #fff;
+  border-color: #777;
+}
+.btn.wg:hover {
+  border-color: #fff;
+}
+/* ----- 8. Form fields ----- */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--ln);
+  border-radius: 0;
+  background: #fff;
+  color: var(--k);
+  font: 300 16px var(--f);
+}
+label {
+  display: block;
+  font: 400 12px var(--f);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mu);
+  margin: 16px 0 6px;
+}
+/* ----- 9. Status tags, tabs, tables ----- */
+.tag {
+  display: inline-block;
+  padding: 1px 10px;
+  border: 1px solid var(--ln);
+  font: 400 11px var(--f);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mu);
+}
+.tag.ok {
+  color: var(--ok);
+  border-color: var(--ok);
+}
+.tabs {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--ln);
+}
+.tabs button {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 10px 0;
+  margin-bottom: -1px;
+  font: 400 12px var(--f);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mu);
+  cursor: pointer;
+}
+.tabs button.on {
+  color: var(--k);
+  border-color: var(--k);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+th,
+td {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--ln);
+  vertical-align: top;
+}
+th {
+  font: 400 11px var(--f);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mu);
+}
+.ov {
+  overflow-x: auto;
+}
+/* ----- 10. Small helpers ----- */
+.mut {
+  color: var(--mu);
+  font-size: 15px;
+}
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.it {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--ln);
+}
+.it:last-of-type {
+  border: 0;
+}
+/* ----- 11. Footer and pop-up message ----- */
+footer {
+  background: var(--k);
+  color: #a8a8a4;
+  padding: 40px 0;
+  font-size: 14px;
+}
+footer .wrap {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+footer a {
+  text-decoration: none;
+  margin-right: 18px;
+}
+footer a:hover {
+  color: #fff;
+}
+#t {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: var(--k);
+  color: #fff;
+  padding: 12px 22px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+  z-index: 9;
+}
+#t.on {
+  opacity: 1;
+}
+/* ----- 12. Mobile screens and reduced motion ----- */
+@media (max-width: 760px) {
+  .hvi,
+  .two,
+  .cols,
+  .ln {
+    grid-template-columns: 1fr;
+  }
+  .wrap,
+  .bar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .hvi {
+    min-height: auto;
+  }
+  nav {
+    margin-left: 0;
+    gap: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+.emergency-box {
+  margin-top: 16px;
+  padding: 20px;
+  border: 1px solid #e2d6d0;
+  background: #fffaf7;
+}
+
+.emergency-box h3 {
+  margin-top: 0;
+}
+
+.emergency-box p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.emergency-box .btn {
+  display: inline-block;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+
+.password-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrap input {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  color: #555;
+  padding: 8px;
+}
+
+
+
+/* for view's===================================================================== */
+/* ===== Layout fixes: paste this at the very END of css/style.css ===== */
+
+/* ----- A. Footer always sits at the bottom of the screen -----
+   Short pages (About, Data and backup...) no longer show a light strip under the footer. */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+}
+
+/* ----- B. Home page hero fills the whole screen -----
+   The light section below it only appears when you scroll. */
+.hvi {
+  min-height: calc(100vh - 60px);
+  min-height: calc(100dvh - 60px);
+}
+
+/* ----- C. Small laptops (up to 1100px wide) ----- */
+@media (max-width: 1100px) {
+  .wrap,
+  .bar {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .hvi {
+    gap: 32px;
+  }
+  .two {
+    grid-template-columns: 1fr;
+  }
+  nav {
+    gap: 16px;
+  }
+}
+
+/* ----- D. Tablets (up to 900px wide) ----- */
+@media (max-width: 900px) {
+  .hvi {
+    grid-template-columns: 1fr;
+    align-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .hv svg {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .cols {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ln {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 28px 0;
+  }
+  .ln span {
+    justify-self: start;
+  }
+  .band {
+    padding: 56px 0;
+  }
+}
+
+/* ----- E. Phones (up to 600px wide) ----- */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+  .wrap,
+  .bar {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .bar {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    gap: 10px 16px;
+  }
+  nav {
+    gap: 6px 14px;
+  }
+  nav a {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+  #m > .wrap {
+    padding-top: 36px;
+    padding-bottom: 64px;
+  }
+  .hvi {
+    min-height: calc(100dvh - 130px);
+  }
+  .hv .row .btn {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  .card {
+    padding: 20px;
+  }
+  .btn {
+    padding: 11px 20px;
+  }
+  .ov table {
+    min-width: 480px;
+    font-size: 14px;
+  }
+  th,
+  td {
+    padding: 10px 6px;
+  }
+  footer .wrap {
+    flex-direction: column;
+    gap: 12px;
+  }
+  #t {
+    max-width: 90vw;
+    text-align: center;
+  }
+}
+
+/* Never let pictures or drawings push the page wider than the screen */
+img,
+svg {
+  max-width: 100%;
+}
+
+/* header sahi for screen...======================================================================= */
+/* ===== Header fix: paste at the very END of css/style.css (after responsive-fix) =====
+   On small screens the menu stays on ONE line and scrolls sideways,
+   so the header stays short and the page gets more room. */
+
+nav {
+  padding-bottom: 2px;
+}
+nav a {
+  white-space: nowrap;
+}
+
+/* Small laptops and tablets: brand and menu share one row, menu scrolls */
+@media (max-width: 1100px) {
+  .bar {
+    flex-wrap: nowrap;
+    gap: 20px;
+  }
+  .brand {
+    flex: none;
+  }
+  nav {
+    flex: 0 1 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #444 transparent;
+  }
+  nav a {
+    flex: none;
+  }
+}
+
+/* Tablets and phones: hide the scrollbar, swipe instead */
+@media (max-width: 900px) {
+  nav {
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Phones: brand on top, menu on its own row (still one line, swipe to see Log out) */
+@media (max-width: 600px) {
+  .bar {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+  nav {
+    flex: 1 1 100%;
+    margin-left: 0;
+    gap: 18px;
+  }
+  nav a {
+    padding: 6px 0;
+  }
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}

@@ -1,0 +1,16 @@
+const router=require("express").Router();
+const {protect,authorize}=require("../middleware/auth");
+const upload=require("../middleware/upload");
+const c=require("../controllers/examController");
+router.use(protect);
+router.get("/",c.getExams);
+router.get("/:id/seating-chart",c.getSeatingChart);
+router.post("/",authorize("Admin"),c.createExam);
+router.patch("/:id",authorize("Admin"),c.updateExam);
+router.delete("/:id",authorize("Admin"),c.deleteExam);
+router.post("/:id/seating-chart",authorize("Admin"),upload.single("chart"),c.uploadSeatingChart);
+router.post("/seating",authorize("Admin"),c.assignSeat);
+router.post("/duties",authorize("Admin"),c.assignDuty);
+router.patch("/duties/:id",authorize("Admin"),c.updateDuty);
+router.post("/requests",authorize("Student","Student CR"),c.createRequest);
+module.exports=router;

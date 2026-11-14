@@ -1,0 +1,11 @@
+const express=require("express");const router=express.Router();
+const {register,login,getMe,updateProfile,changePassword}=require("../controllers/authController");
+const {protect}=require("../middleware/auth");
+const {rateLimit}=require("express-rate-limit");
+const loginLimit=rateLimit({windowMs:15*60*1000,limit:10,standardHeaders:"draft-8",legacyHeaders:false,message:{success:false,message:"Too many login attempts. Please try again after 15 minutes."}});
+router.post("/register",register);
+router.post("/login",loginLimit,login);
+router.get("/me",protect,getMe);
+router.patch("/me",protect,updateProfile);
+router.patch("/me/password",protect,changePassword);
+module.exports=router;
